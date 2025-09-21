@@ -1,0 +1,337 @@
+<!-- tips.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashain Celebration Tips 🎉</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  /* =========================
+   Fresh CSS for tips.html
+   (save as style.css and link in <head>)
+   ========================= */
+
+/* Import font (optional if you already have it) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root{
+  --bg-start: #fff7f6;
+  --bg-end:   #fff0f3;
+  --primary:  #ff3b6b;   /* warm pink/red */
+  --accent:   #ffb86b;   /* golden peach */
+  --muted:    #6b4a4a;
+  --card-bg:  rgba(255,255,255,0.85);
+  --glass-blur: 10px;
+  --radius:   14px;
+  --shadow:   0 10px 30px rgba(95, 38, 61, 0.12);
+}
+
+/* ------------------------
+   Reset & base
+   ------------------------ */
+* { box-sizing: border-box; margin:0; padding:0; }
+html,body { height:100%; }
+body{
+  font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg, var(--bg-start), var(--bg-end));
+  color: var(--muted);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.6;
+  overflow-x: hidden;
+}
+
+/* Utility container */
+.container{
+  width: 92%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ------------------------
+   Header
+   ------------------------ */
+.site-header{
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: linear-gradient(90deg, rgba(255,59,107,0.95), rgba(255,184,107,0.95));
+  padding: 0.7rem 0;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+.nav-container{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 1rem;
+  padding: 0 1rem;
+}
+.logo{
+  color: #fff;
+  font-weight:700;
+  font-size:1.15rem;
+  text-decoration:none;
+}
+.nav ul{
+  display:flex;
+  gap:1rem;
+  list-style:none;
+  align-items:center;
+}
+.nav a{
+  color: rgba(255,255,255,0.95);
+  text-decoration:none;
+  padding: 0.35rem 0.6rem;
+  border-radius: 10px;
+  font-weight:600;
+  transition: transform .18s ease, background .18s ease;
+}
+.nav a:hover,
+.nav a.active{
+  transform: translateY(-3px);
+  background: rgba(255,255,255,0.12);
+}
+
+/* ------------------------
+   Hero
+   ------------------------ */
+.hero{
+  min-height: 36vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color: #fff;
+  position: relative;
+  padding: 2rem 1rem;
+  background-image: linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.30));
+}
+.hero-content{ position: relative; z-index: 2; max-width: 820px; padding: 0 1rem; }
+.hero h1{
+  font-size: 2rem;
+  line-height:1.05;
+  margin-bottom:0.6rem;
+  color: var(--accent);
+  text-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+.hero p{ font-size:1.05rem; color: #fff; opacity:0.95; }
+
+/* Subtle hero sparkle */
+.hero::after{
+  content: "🌸 ✨ 💖";
+  position: absolute;
+  right: 6%;
+  top: 10%;
+  font-size: 1.6rem;
+  opacity: 0.12;
+  transform: translateY(0);
+  animation: floatSlow 10s ease-in-out infinite;
+}
+
+/* ------------------------
+   Tips Section (main focus)
+   ------------------------ */
+.tips-section{
+  position: relative;
+  padding: 3rem 0;
+  overflow: visible;
+}
+
+/* floating emoji decor (background, subtle) */
+.tips-section::before,
+.tips-section::after{
+  position: absolute;
+  pointer-events: none;
+  font-size: 2rem;
+  opacity: 0.14;
+  z-index: 0;
+}
+.tips-section::before{
+  content: "💖 🌸 😊";
+  top: 6%;
+  left: -1%;
+  animation: floatSlow 12s linear infinite;
+}
+.tips-section::after{
+  content: "✨ 🎉 💕";
+  bottom: 10%;
+  right: -2%;
+  animation: floatSlow 16s linear infinite reverse;
+}
+
+/* title */
+.tips-section > .container > h2{
+  text-align:center;
+  color: var(--primary);
+  font-size:1.8rem;
+  margin-bottom: 1.6rem;
+  z-index: 2;
+}
+
+/* grid */
+.tips-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+  align-items: start;
+  z-index: 2;
+}
+
+/* tip card (glass) */
+.tip-card{
+  position: relative;
+  background: var(--card-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(255,255,255,0.6);
+  transition: transform 0.28s cubic-bezier(.2,.9,.2,1), box-shadow 0.28s;
+  overflow: hidden;
+}
+.tip-card h3{
+  margin-bottom: 0.6rem;
+  color: var(--primary);
+  font-size: 1.05rem;
+}
+.tip-card p{
+  color: #4a2d2d;
+  font-size: 0.98rem;
+  line-height: 1.5;
+}
+
+/* hover */
+.tip-card:hover{
+  transform: translateY(-9px) scale(1.01);
+  box-shadow: 0 18px 40px rgba(255,91,133,0.14);
+}
+
+/* subtle emoji watermark in each card */
+.tip-card::after{
+  content: "🌸";
+  position: absolute;
+  right: 10px;
+  bottom: 6px;
+  font-size: 3.2rem;
+  color: rgba(255, 182, 193, 0.18);
+  transform: rotate(-12deg);
+  pointer-events: none;
+}
+
+/* ------------------------
+   Footer
+   ------------------------ */
+.site-footer{
+  margin-top: 2.4rem;
+  padding: 1.25rem 1rem;
+  text-align:center;
+  background: linear-gradient(90deg, rgba(255,59,107,0.9), rgba(255,184,107,0.9));
+  color: #fff;
+  font-weight:600;
+}
+
+/* ------------------------
+   Animations
+   ------------------------ */
+@keyframes floatSlow{
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-18px) rotate(8deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+
+/* ------------------------
+   Responsive tweaks
+   ------------------------ */
+@media (max-width: 900px){
+  .hero h1{ font-size: 1.6rem; }
+  .hero p{ font-size: 1rem; }
+  .nav ul{ gap: 0.6rem; }
+}
+
+@media (max-width: 520px){
+  .nav ul{ display: none; } /* simple: hide nav links on very small screens */
+  .logo{ font-size:1rem; }
+  .tips-section::before, .tips-section::after { display:none; }
+}
+
+/* ------------------------
+   Accessibility: respect reduced motion
+   ------------------------ */
+@media (prefers-reduced-motion: reduce){
+  .hero::after, .tips-section::before, .tips-section::after, .tip-card, .nav a { animation: none !important; transition: none !important; }
+}
+
+</style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="index.html" class="logo">Dashain Wishes for Chhaya 🌸</a>
+      <nav class="nav" aria-label="Main Navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="traditions.html">Traditions</a></li>
+          <li><a href="wishes.html">Wishes</a></li>
+          <li><a href="tips.html" class="active">Tips</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" style="background-image: url('assets/hero.jpg');">
+    <div class="hero-content">
+      <h1>🌟 Dashain Celebration Tips 🌟</h1>
+      <p>Dear Chhaya 💖, here are some thoughtful tips to make this Dashain safer, happier, and full of love ✨.</p>
+    </div>
+  </section>
+
+  <!-- Tips Section -->
+  <main>
+    <section class="tips-section">
+      <div class="container">
+        <h2>✨ Celebrate with Joy & Care ✨</h2>
+        <div class="tips-grid">
+
+          <article class="tip-card">
+            <h3>🎉 Family First</h3>
+            <p>Spend quality time with your family and loved ones. Dashain is all about blessings, smiles 😊, and togetherness. Especially for you, Chhaya 🌸!</p>
+          </article>
+
+          <article class="tip-card">
+            <h3>🙏 Safe Tika & Jamara</h3>
+            <p>Receive and give tika with love and respect. Handle jamara gently 🌿 and keep it fresh. It’s a blessing that lasts the whole year.</p>
+          </article>
+
+          <article class="tip-card">
+            <h3>🍲 Enjoy Delicious Food</h3>
+            <p>Relish the festive meals 🍛 but remember balance! Share your favorite sweets and treats with friends and family 💕.</p>
+          </article>
+
+          <article class="tip-card">
+            <h3>🎁 Share Happiness</h3>
+            <p>Offer small gifts 🎁 or warm wishes to make others smile. Sometimes a heartfelt message for someone special (like you, Chhaya 😊) is the best gift!</p>
+          </article>
+
+          <article class="tip-card">
+            <h3>✨ Safety First</h3>
+            <p>If you’re traveling, take care on the roads 🚗. Enjoy swings 🌸 but make sure they are safe and strong. Your smile is too precious 💖!</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>Made with love 🌸 for Chhaya | शुभ दशैं 💕 | &copy; 2025 Dashain Wishes</p>
+  </footer>
+
+</body>
+</html>
