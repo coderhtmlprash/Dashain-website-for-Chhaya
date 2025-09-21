@@ -1,0 +1,310 @@
+<!-- traditions.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashain Traditions | For Chhaya</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  
+<style>
+  /* style.css */
+
+/* Reset & Fonts */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to right, #fff5f7, #fcefe9);
+  color: #333;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  left: -1000px;
+  top: auto;
+  background: #ff4d6d;
+  color: #fff;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  z-index: 100;
+  transition: left 0.3s ease;
+}
+
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+}
+
+/* Header */
+.site-header {
+  background: #ff6f91;
+  color: white;
+  padding: 1rem 0;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+}
+
+.nav ul {
+  display: flex;
+  gap: 1.2rem;
+  list-style: none;
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.nav a:hover,
+.nav a.active {
+  color: #ffe066;
+}
+
+/* Hero Section */
+.hero {
+  min-height: 60vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  color: white;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 2rem;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  animation: fadeInDown 1.5s ease-in-out;
+}
+
+.hero p {
+  font-size: 1.3rem;
+  animation: fadeInUp 2s ease-in-out;
+}
+
+/* Grid & Cards */
+.traditions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.card {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid #ffe6eb;
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.card .icon {
+  font-size: 2.5rem;
+  color: #ff6f91;
+  margin-bottom: 1rem;
+}
+
+.card h2 {
+  font-size: 1.6rem;
+  color: #ff3366;
+  margin-bottom: 1rem;
+}
+
+.card p {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.6;
+}
+
+/* Add fun emojis in card background */
+.card::after {
+  content: "💖😊🌸✨💕";
+  position: absolute;
+  font-size: 2.5rem;
+  color: rgba(255, 182, 193, 0.2);
+  bottom: -10px;
+  right: -10px;
+  transform: rotate(-20deg);
+}
+
+/* Footer */
+.site-footer {
+  background: #ff6f91;
+  text-align: center;
+  padding: 1.2rem;
+  color: white;
+  margin-top: 3rem;
+  font-size: 0.9rem;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+</style>
+
+</head>
+<body>
+
+  <!-- Skip link -->
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">Dashain Wishes for Chhaya</a>
+      <nav class="nav" aria-label="Main Navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="traditions.html" class="active">Traditions</a></li>
+          <li><a href="wishes.html">Wishes</a></li>
+          <li><a href="tips.html">Tips</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" style="background-image: url('assets/tika.jpg'); background-attachment: fixed;">
+    <div class="hero-content">
+      <h1>Dashain Traditions</h1>
+      <p>शुभ दशैं, Chhaya 🌸 — Discover the rituals that make this festival so magical.</p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main id="main" class="container" style="padding: 3rem 0;">
+    <section class="grid traditions-grid">
+
+      <!-- Tika -->
+      <article class="card">
+        <div class="icon">
+          <!-- Simple SVG tika icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="40" height="40" viewBox="0 0 24 24"><circle cx="12" cy="12" r="6"/></svg>
+        </div>
+        <h2>Tika</h2>
+        <p>
+          Elders place <strong>tika</strong> (red vermillion with yogurt and rice) on the forehead, 
+          blessing family members with prosperity and long life.  
+          Chhaya, may every tika you receive fill your heart with happiness 💖.
+        </p>
+      </article>
+
+      <!-- Jamara -->
+      <article class="card">
+        <div class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="40" height="40" viewBox="0 0 24 24"><path d="M12 2C9 8 15 12 12 22"/></svg>
+        </div>
+        <h2>Jamara</h2>
+        <p>
+          Barley seeds are sown on Ghatasthapana and offered as <strong>jamara</strong> 
+          during tika. It symbolizes fertility, prosperity, and blessings.  
+          Just like jamara, may your life grow greener and brighter, Chhaya 🌱.
+        </p>
+      </article>
+
+      <!-- Swings -->
+      <article class="card">
+        <div class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="40" height="40" viewBox="0 0 24 24"><path d="M4 2v20M20 2v20M4 6h16M9 6v14M15 6v14"/></svg>
+        </div>
+        <h2>Bamboo Swings</h2>
+        <p>
+          Giant <strong>bamboo swings</strong> (ping) are built in villages, 
+          bringing laughter and joy to children and adults alike.  
+          I hope you get to swing high this Dashain, Chhaya — touching the sky with joy 🎉.
+        </p>
+      </article>
+
+      <!-- Blessings -->
+      <article class="card">
+        <div class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="40" height="40" viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5 2.5 7.5-6-4.5-6 4.5 2.5-7.5L2 9h7z"/></svg>
+        </div>
+        <h2>Blessings</h2>
+        <p>
+          Dashain is a time when elders bless the younger generation with health, 
+          success, and happiness.  
+          And my wish is simple — may you always be blessed, dear Chhaya 🌺.
+        </p>
+      </article>
+
+      <!-- Family Feast -->
+      <article class="card">
+        <div class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="40" height="40" viewBox="0 0 24 24"><path d="M4 22h16v-2H4v2zM7 2v14h2V2H7zm8 0v14h2V2h-2z"/></svg>
+        </div>
+        <h2>Family Feast</h2>
+        <p>
+          Delicious food, goat meat, sel roti, and sweets are shared among family members.  
+          May every Dashain meal you enjoy be filled with love and laughter, Chhaya 🍲.
+        </p>
+      </article>
+
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>&copy; <span id="year">2025</span> Dashain Celebrations for Chhaya. Made with ❤️.</p>
+  </footer>
+
+</body>
+</html>
