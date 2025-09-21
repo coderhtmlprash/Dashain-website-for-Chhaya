@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Send Wishes ❤️</title>
+  <style>
+    /* ==================================================
+   Wishes Page CSS - Affectionate & Festive Style
+   ================================================== */
+
+/* ---------- Reset ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", "Segoe UI", sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: linear-gradient(120deg, #fff0f5, #fff8f0, #fffdf6);
+    color: #333;
+    padding: 30px 20px;
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* ---------- Header ---------- */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 2.8rem;
+    color: #d62828;
+    text-shadow: 2px 2px 15px rgba(230, 57, 70, 0.4);
+    margin-bottom: 12px;
+    animation: fadeInDown 1.2s ease;
+    background: linear-gradient(90deg, #ff758f, #ff6f61, #d62828);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+header p {
+    font-size: 1.2rem;
+    color: #444;
+    margin-bottom: 20px;
+    animation: fadeIn 2s ease;
+    font-style: italic;
+}
+
+/* ---------- Wish Form Section ---------- */
+.wish-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.wish-form {
+    background: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 600px;
+    animation: fadeInUp 1.5s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative gradient border */
+.wish-form::before {
+    content: "";
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    background: linear-gradient(45deg, #ff758f, #ff6f61, #d62828, #ffb703);
+    border-radius: 22px;
+    z-index: -1;
+    animation: borderGlow 5s linear infinite;
+}
+
+textarea {
+    width: 100%;
+    height: 180px;
+    padding: 15px;
+    font-size: 1.1rem;
+    border: 2px solid #ffc2d1;
+    border-radius: 12px;
+    resize: none;
+    outline: none;
+    transition: all 0.3s ease;
+    background: #fffafc;
+    box-shadow: inset 0 2px 6px rgba(0,0,0,0.05);
+}
+
+textarea:focus {
+    border-color: #ff4d6d;
+    box-shadow: 0 0 12px rgba(255, 77, 109, 0.5);
+}
+
+/* ---------- Send Button ---------- */
+button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 14px 32px;
+    background: linear-gradient(90deg, #ff758f, #ff6f61, #d62828);
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite;
+}
+
+button:hover {
+    transform: translateY(-6px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+    background: linear-gradient(90deg, #d62828, #ff6f61, #ff758f);
+}
+
+/* ---------- Floating Emojis ---------- */
+.floating-emojis span {
+    position: absolute;
+    font-size: 1.8rem;
+    animation: floatEmoji 12s linear infinite;
+    opacity: 0.7;
+}
+
+.floating-emojis span:nth-child(1) { left: 10%; animation-delay: 0s; }
+.floating-emojis span:nth-child(2) { left: 25%; animation-delay: 2s; }
+.floating-emojis span:nth-child(3) { left: 40%; animation-delay: 4s; }
+.floating-emojis span:nth-child(4) { left: 60%; animation-delay: 6s; }
+.floating-emojis span:nth-child(5) { left: 75%; animation-delay: 8s; }
+.floating-emojis span:nth-child(6) { left: 90%; animation-delay: 10s; }
+
+@keyframes floatEmoji {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    50% { transform: translateY(-50vh) rotate(180deg); opacity: 0.8; }
+    100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+}
+
+/* ---------- Footer ---------- */
+footer {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.back-home {
+    display: inline-block;
+    padding: 12px 25px;
+    background: linear-gradient(90deg, #ff758f, #ff6f61, #d62828);
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 40px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.back-home:hover {
+    background: linear-gradient(90deg, #d62828, #ff6f61, #ff758f);
+    transform: scale(1.05);
+}
+
+/* ---------- Animations ---------- */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 0 15px rgba(230,57,70,0.4); }
+    50% { transform: scale(1.05); box-shadow: 0 0 35px rgba(230,57,70,0.6); }
+    100% { transform: scale(1); box-shadow: 0 0 15px rgba(230,57,70,0.4); }
+}
+
+@keyframes borderGlow {
+    0% { filter: hue-rotate(0deg); }
+    100% { filter: hue-rotate(360deg); }
+}
+
+/* ---------- Responsive Tweaks ---------- */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.2rem;
+    }
+    header p {
+        font-size: 1rem;
+    }
+    .wish-form {
+        padding: 20px;
+    }
+    textarea {
+        height: 150px;
+        font-size: 1rem;
+    }
+    button {
+        font-size: 1rem;
+        padding: 12px 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 15px 10px;
+    }
+    header h1 {
+        font-size: 1.8rem;
+    }
+    textarea {
+        height: 130px;
+        font-size: 0.95rem;
+    }
+    button {
+        font-size: 0.95rem;
+    }
+    .back-home {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+/* ---------- Extra Styling ---------- */
+/* Decorative text glow */
+header h1.glow-text {
+    text-shadow: 0 0 10px #ff99ac, 0 0 20px #ff6f61, 0 0 30px #d62828;
+}
+
+/* Small floating hearts */
+.heart {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background: #ff4d6d;
+    transform: rotate(45deg);
+    animation: heartFloat 15s infinite ease-in-out;
+    opacity: 0.5;
+    z-index: 0;
+}
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background: #ff4d6d;
+    border-radius: 50%;
+}
+.heart::before { top: -9px; left: 0; }
+.heart::after { left: -9px; top: 0; }
+
+@keyframes heartFloat {
+    0% { transform: translateY(0) rotate(45deg); opacity: 0.6; }
+    50% { transform: translateY(-60vh) rotate(45deg); opacity: 1; }
+    100% { transform: translateY(-120vh) rotate(45deg); opacity: 0; }
+}
+
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <h1> Youuu can wish here if u want to wish ❤️</h1>
+    <p>Write a heartfelt Dashain wish filled with love & blessings 🎉✨</p>
+  </header>
+
+  <!-- Wishes Form -->
+  <main>
+    <section class="wish-section">
+      <form class="wish-form">
+        <textarea placeholder="Type your Dashain wishes here... 😊❤️🎉"></textarea>
+        <button type="submit">💌 Send  ❤️</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- Floating Emojis for festive effect -->
+  <div class="floating-emojis">
+    <span>😊</span>
+    <span>❤️</span>
+    <span>🎉</span>
+    <span>🙏</span>
+    <span>🌸</span>
+    <span>✨</span>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <a href="index.html" class="back-home">⬅ Back to Home</a>
+  </footer>
+</body>
+</html>
