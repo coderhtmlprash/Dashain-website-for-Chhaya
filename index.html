@@ -1,0 +1,520 @@
+<!-- index.html -->
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>शुभ दशैं — Happy Dashain!</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* -----------------------------
+   Global Styles & Variables
+------------------------------ */
+:root {
+  --color-primary: #c62828;   /* rich Dashain red */
+  --color-accent: #f9a825;    /* golden yellow */
+  --color-bg: #fff8f0;        /* warm cream */
+  --color-dark: #2c2c2c;
+  --color-light: #ffffff;
+  --shadow: 0 8px 24px rgba(0,0,0,0.15);
+  --radius: 12px;
+  --transition: all 0.3s ease;
+  --font-heading: 'Poppins', sans-serif;
+  --font-body: 'Poppins', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-bg);
+  color: var(--color-dark);
+  line-height: 1.6;
+}
+
+/* -----------------------------
+   Accessibility
+------------------------------ */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-primary);
+  color: var(--color-light);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  z-index: 100;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 10px;
+}
+
+/* -----------------------------
+   Container Utility
+------------------------------ */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* -----------------------------
+   Header / Navigation
+------------------------------ */
+.site-header {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  box-shadow: var(--shadow);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav a {
+  text-decoration: none;
+  color: var(--color-dark);
+  font-weight: 500;
+  transition: var(--transition);
+  position: relative;
+}
+
+.nav a::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background: var(--color-accent);
+  transition: width 0.3s;
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+}
+
+.nav a:hover::after,
+.nav a.active::after {
+  width: 100%;
+}
+
+.nav a:hover {
+  color: var(--color-primary);
+}
+
+/* -----------------------------
+   Hero Section
+------------------------------ */
+.hero {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  color: var(--color-light);
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: var(--color-accent);
+  animation: fadeInDown 1s ease forwards;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  color: #fdfdfd;
+  animation: fadeInUp 1.5s ease forwards;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* Buttons */
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  background: var(--color-primary);
+  color: var(--color-light);
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition);
+  box-shadow: var(--shadow);
+}
+
+.btn:hover {
+  background: var(--color-accent);
+  color: var(--color-dark);
+  transform: translateY(-3px);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--color-light);
+}
+
+.btn-outline:hover {
+  background: var(--color-light);
+  color: var(--color-primary);
+}
+
+/* -----------------------------
+   Footer
+------------------------------ */
+.site-footer {
+  background: var(--color-primary);
+  color: var(--color-light);
+  text-align: center;
+  padding: 1.5rem 1rem;
+  margin-top: 3rem;
+}
+
+.site-footer p {
+  font-size: 0.9rem;
+}
+
+/* -----------------------------
+   Animations
+------------------------------ */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* -----------------------------
+   Responsive
+------------------------------ */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.25rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .nav ul {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+/* =========================
+   Firecracker / Firework Animation
+   Add to your style.css (first page hero overlay)
+   ========================= */
+
+/* container sitting above hero content */
+.fireworks {
+  pointer-events: none;               /* don't block clicks */
+  position: absolute;                 /* place inside hero (position: relative on .hero) */
+  inset: 0;
+  z-index: 50;
+  overflow: visible;
+}
+
+/* a rocket launcher row (we'll create several rockets with html) */
+.rocket {
+  position: absolute;
+  bottom: 6%;
+  width: 6px;
+  height: 30px;
+  transform-origin: center bottom;
+  left: 10%;                          /* overridden per rocket via nth-child */
+  animation: launch 2.6s cubic-bezier(.2,.8,.2,1) infinite;
+  filter: drop-shadow(0 6px 8px rgba(0,0,0,0.15));
+}
+
+/* rocket body */
+.rocket::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  width: 6px;
+  height: 24px;
+  border-radius: 3px;
+  background: linear-gradient(180deg, #ffe6e6, #d62828);
+  box-shadow: 0 2px 6px rgba(198, 40, 40, 0.6), inset 0 -4px 10px rgba(255,255,255,0.12);
+}
+
+/* rocket tip */
+.rocket::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 24px;
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 10px solid #ff7961;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.12));
+}
+
+/* flickering flame tail while flying */
+.rocket .flame {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -8px;
+  width: 6px;
+  height: 14px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 30%, #ffd54a 0 10%, #ff8a65 20%, rgba(255,120,80,0.9) 30%, rgba(255,60,30,0.0) 60%);
+  opacity: 0.95;
+  animation: flameFlicker 0.15s linear infinite;
+  filter: blur(0.6px);
+}
+
+/* explosion wrapper: positioned where rocket ends its travel */
+.explosion {
+  position: absolute;
+  width: 0;
+  height: 0;
+  bottom: 50%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  pointer-events: none;
+}
+
+/* particle */
+.particle {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  opacity: 0;
+  transform: translate(0,0) scale(0.1);
+  will-change: transform, opacity;
+  animation: burst 1s cubic-bezier(.2,.8,.2,1) forwards;
+}
+
+/* colors for particles (use utility classes or nth-child) */
+.particle.c1 { background: #ffd54a; }
+.particle.c2 { background: #ff8a65; }
+.particle.c3 { background: #f48fb1; }
+.particle.c4 { background: #90caf9; }
+.particle.c5 { background: #b39ddb; }
+.particle.c6 { background: #a5d6a7; }
+
+/* -- KEYFRAMES -- */
+
+/* rocket launch arc - goes up and eases into explosion point */
+@keyframes launch {
+  0% {
+    transform: translateY(0) rotate(-6deg) scale(1);
+    opacity: 1;
+  }
+  70% {
+    transform: translateY(-62vh) rotate(8deg) scale(1.02);
+    opacity: 1;
+  }
+  85% {
+    transform: translateY(-66vh) rotate(12deg) scale(1.03);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-66vh) rotate(12deg) scale(1.0);
+    opacity: 0;
+  }
+}
+
+/* flame flicker */
+@keyframes flameFlicker {
+  0% { transform: translateX(-50%) scaleY(1) translateY(0); opacity: 1; filter: blur(0.6px); }
+  50% { transform: translateX(-50%) scaleY(1.35) translateY(2px); opacity: 0.9; filter: blur(1.2px); }
+  100% { transform: translateX(-50%) scaleY(1) translateY(0); opacity: 1; filter: blur(0.6px); }
+}
+
+/* particle burst: particles move outwards and fade */
+@keyframes burst {
+  0% { transform: translate(0, 0) scale(0.2); opacity: 1; }
+  60% { opacity: 1; }
+  100% { transform: translate(var(--tx, 0), var(--ty, 0)) scale(0.9); opacity: 0; }
+}
+
+/* subtle floating emoji + sparkle behind hero (optional decorative layer) */
+.hero .sparkles {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.hero .sparkles::before {
+  content: "🌸✨😊";
+  position: absolute;
+  top: 8%;
+  left: 6%;
+  font-size: 1.5rem;
+  opacity: 0.16;
+  transform: translateY(0);
+  animation: floatEmojis 8s ease-in-out infinite;
+}
+
+.hero .sparkles::after {
+  content: "💖🎉💕";
+  position: absolute;
+  bottom: 8%;
+  right: 6%;
+  font-size: 1.5rem;
+  opacity: 0.12;
+  transform: translateY(0);
+  animation: floatEmojis 10s ease-in-out infinite reverse;
+}
+
+@keyframes floatEmojis {
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-18px) rotate(8deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+
+/* -------------------------
+   Utility: multiple rockets variety
+   You can add .rocket elements in HTML and nth-child will vary timing/position
+   ------------------------- */
+.fireworks .rocket:nth-child(1) { left: 12%; animation-delay: 0s; transform-origin: center bottom; }
+.fireworks .rocket:nth-child(1) .flame { background: radial-gradient(circle at 50% 20%, #fff176, #ffb74d); }
+.fireworks .rocket:nth-child(2) { left: 30%; animation-delay: 0.8s; }
+.fireworks .rocket:nth-child(3) { left: 48%; animation-delay: 1.6s; }
+.fireworks .rocket:nth-child(4) { left: 66%; animation-delay: 2.2s; }
+.fireworks .rocket:nth-child(5) { left: 84%; animation-delay: 2.9s; }
+
+/* Explosion placement: each rocket should include an .explosion element that animates after launch.
+   We simulate the explosion by delaying particles inside the rocket with negative animation delay so they fire when rocket reaches top. */
+
+/* Stagger particle animations using nth-child on .particle inside each .explosion */
+.rocket .explosion .particle { animation-delay: 0.95s; } /* base delay relative to rocket animation */
+.rocket .explosion .particle:nth-child(1) { --tx: -80px; --ty: -40px; animation-delay: 0.90s; }
+.rocket .explosion .particle:nth-child(2) { --tx: -20px; --ty: -120px; animation-delay: 0.94s; }
+.rocket .explosion .particle:nth-child(3) { --tx: 40px;  --ty: -90px;  animation-delay: 0.98s; }
+.rocket .explosion .particle:nth-child(4) { --tx: 100px; --ty: -30px; animation-delay: 1.02s; }
+.rocket .explosion .particle:nth-child(5) { --tx: 60px;  --ty: 10px;   animation-delay: 1.06s; }
+.rocket .explosion .particle:nth-child(6) { --tx: -40px; --ty: -10px;  animation-delay: 1.1s; }
+
+/* Slight overall performance and reduced motion respect */
+@media (prefers-reduced-motion: reduce) {
+  .rocket, .particle, .hero .sparkles { animation: none !important; opacity: 0.85; }
+}
+
+    </style>
+    
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <!-- Header / Navigation -->
+    <header class="site-header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Dashain Wishes</a>
+            <nav class="nav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="traditions.html">Traditions</a></li>
+                    <li><a href="wishes.html">Wishes</a></li>
+                    <li><a href="tips.html">Tips</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <main id="main">
+        <section class="hero" style="background-image:url('assets/hero.jpg');">
+            <div class="hero-content container">
+                <h1>शुभ दशैं — Happy Dashain!  Chhaya🥰❤️🥰</h1>
+                <p>Wishing you blessings, joy, and long-lasting happiness. Chhaya🥰<br>
+                    Celebrate with family, love, and tradition.</p>
+                <div class="hero-buttons">
+                    <a href="viewgallary.html" class="btn">View Gallery</a>
+                    <a href="sendwishes.html" class="btn btn-outline">Send Wishes</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2025 Dashain Greetings for you Chhaya.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
