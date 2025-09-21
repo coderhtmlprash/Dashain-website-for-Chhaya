@@ -1,0 +1,334 @@
+<!-- about.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Dashain | For Chhaya</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* style.css */
+
+/* -----------------------
+   Root Variables
+------------------------*/
+:root {
+  --color-bg: #fff9f5;
+  --color-primary: #d62828;   /* warm Dashain red */
+  --color-secondary: #f77f00; /* festive orange */
+  --color-accent: #fcbf49;    /* golden highlight */
+  --color-dark: #5a2d2d;
+  --color-light: #ffffff;
+
+  --radius: 14px;
+  --shadow: 0 6px 18px rgba(0,0,0,0.1);
+
+  --font-body: "Poppins", sans-serif;
+}
+
+/* -----------------------
+   Reset & Base
+------------------------*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-dark);
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* -----------------------
+   Skip link (accessibility)
+------------------------*/
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-primary);
+  color: var(--color-light);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  transition: top 0.3s;
+  z-index: 1000;
+}
+.skip-link:focus {
+  top: 10px;
+}
+
+/* -----------------------
+   Header & Navigation
+------------------------*/
+.site-header {
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+  color: var(--color-light);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--color-light);
+}
+
+.nav ul {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.nav a {
+  color: var(--color-light);
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius);
+  transition: background 0.3s, transform 0.3s;
+}
+
+.nav a:hover,
+.nav a.active {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+/* -----------------------
+   Hero Section
+------------------------*/
+.hero {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: var(--color-light);
+  position: relative;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+  animation: fadeInDown 1.5s ease forwards;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  animation: fadeInUp 1.5s ease forwards;
+}
+
+/* -----------------------
+   Buttons
+------------------------*/
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  background: var(--color-accent);
+  color: var(--color-dark);
+  font-weight: 600;
+  margin: 0.25rem;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s, background 0.3s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  background: var(--color-secondary);
+  color: var(--color-light);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--color-accent);
+  color: var(--color-accent);
+}
+
+.btn-outline:hover {
+  background: var(--color-accent);
+  color: var(--color-dark);
+}
+
+/* -----------------------
+   Content (About page)
+------------------------*/
+main article {
+  background: var(--color-light);
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  animation: fadeIn 1.5s ease forwards;
+}
+
+main h2 {
+  color: var(--color-primary);
+  margin: 1.5rem 0 0.75rem;
+  font-size: 1.5rem;
+}
+
+main p {
+  margin-bottom: 1.2rem;
+}
+
+/* -----------------------
+   Footer
+------------------------*/
+.site-footer {
+  background: linear-gradient(90deg, var(--color-secondary), var(--color-primary));
+  color: var(--color-light);
+  text-align: center;
+  padding: 1.5rem 0;
+  margin-top: 2rem;
+}
+
+/* -----------------------
+   Animations
+------------------------*/
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* -----------------------
+   Responsive
+------------------------*/
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .nav ul {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+}
+  </style>
+</head>
+<body>
+
+  <!-- Skip link -->
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">Dashain Wishes for Chhaya</a>
+      <nav class="nav" aria-label="Main Navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html" class="active">About</a></li>
+          <li><a href="traditions.html">Traditions</a></li>
+          <li><a href="wishes.html">Wishes</a></li>
+          <li><a href="tips.html">Tips</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" style="background-image: url('assets/jamara.jpg'); background-attachment: fixed;">
+    <div class="hero-content">
+      <h1>About Dashain</h1>
+      <p>शुभ दशैं, Chhaya 🌸 — Discover the history, meaning, and magic of Nepal’s grandest festival.</p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main id="main" class="container" style="padding: 3rem 0;">
+    <article>
+      <h2>The Heart of Nepal’s Festivals</h2>
+      <p>
+        Dashain, also known as Vijaya Dashami, is the most significant and widely celebrated festival in Nepal. 
+        It usually falls in the month of Ashwin (September–October) and lasts for fifteen days, uniting families, 
+        relatives, and communities across the country. And this year, it’s made extra special because I get to share it with you, Chhaya.
+      </p>
+
+      <h2>Victory of Good over Evil</h2>
+      <p>
+        The festival symbolizes the triumph of Goddess Durga over the demon Mahishasura, 
+        representing the eternal victory of good over evil. During this time, people pray for strength, prosperity, and happiness.  
+        Just like Goddess Durga’s blessings, may you always shine with courage and grace, Chhaya ✨.
+      </p>
+
+      <h2>Time for Family & Blessings</h2>
+      <p>
+        Dashain is also a time when families come together, receive tika and jamara from elders, 
+        and share blessings of longevity and joy.  
+        For me, sending these warm thoughts to you is like offering a personal blessing — wishing you endless smiles, Chhaya 💐.
+      </p>
+
+      <h2>A Season of Joy</h2>
+      <p>
+        Beyond its religious meaning, Dashain fills every corner of Nepal with happiness — 
+        swings in villages, new clothes, tasty food, and laughter all around.  
+        I hope this season brings you as much joy and brightness as you bring into my life, Chhaya 🌺.
+      </p>
+    </article>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>&copy; <span id="year">2025</span> Dashain Celebrations for Chhaya. All rights reserved with ❤️.</p>
+  </footer>
+
+</body>
+</html>
