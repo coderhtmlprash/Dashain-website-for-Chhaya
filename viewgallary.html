@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashain Gallery ❤️</title>
+    <style>
+        /* ==================================================
+   Dashain Gallery - Professional & Affectionate Style
+   ================================================== */
+
+        /* ---------- Reset & Base ---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", "Segoe UI", sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: linear-gradient(120deg, #fff0f5, #fff8f0, #fffdf6);
+            color: #333;
+            padding: 40px 20px;
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* ---------- Decorative Background Hearts ---------- */
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: #ff4d6d;
+            transform: rotate(45deg);
+            animation: floatHearts 10s infinite ease-in-out;
+            opacity: 0.6;
+            z-index: 0;
+        }
+
+        .heart::before,
+        .heart::after {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: #ff4d6d;
+            border-radius: 50%;
+        }
+
+        .heart::before {
+            top: -10px;
+            left: 0;
+        }
+
+        .heart::after {
+            left: -10px;
+            top: 0;
+        }
+
+        /* ---------- Header ---------- */
+        header h1 {
+            font-size: 3rem;
+            color: #d62828;
+            text-shadow: 2px 2px 15px rgba(230, 57, 70, 0.4);
+            margin-bottom: 15px;
+            animation: fadeInDown 1.2s ease;
+            background: linear-gradient(90deg, #ff758f, #ff6f61, #d62828);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p {
+            font-size: 1.4rem;
+            color: #444;
+            margin-bottom: 40px;
+            animation: fadeIn 2s ease;
+            font-style: italic;
+        }
+
+        /* ---------- Gallery Grid ---------- */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            z-index: 2;
+        }
+
+        /* ---------- Photo Card ---------- */
+        .photo-card {
+            background: linear-gradient(145deg, #fff, #fff0f2);
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            cursor: pointer;
+            position: relative;
+            border: 3px solid #ffe6eb;
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            transition: transform 0.5s ease, filter 0.5s ease;
+        }
+
+        .photo-card p {
+            padding: 18px;
+            font-size: 1.1rem;
+            color: #b22222;
+            font-weight: 600;
+            background: linear-gradient(to right, #fff, #fff5f7);
+            border-top: 2px dashed #ffc2d1;
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+
+        /* Hover effect */
+        .photo-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.18);
+            border-color: #ff99ac;
+        }
+
+        .photo-card:hover img {
+            transform: scale(1.1);
+            filter: brightness(1.1);
+        }
+
+        /* Shine effect */
+        .photo-card::after {
+            content: "";
+            position: absolute;
+            top: -100%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(25deg);
+            transition: all 0.8s;
+        }
+
+        .photo-card:hover::after {
+            top: 100%;
+            left: 100%;
+        }
+
+        /* ---------- Footer ---------- */
+        footer {
+            margin-top: 60px;
+            font-size: 1.2rem;
+            color: #fff;
+            background: linear-gradient(90deg, #ff758f, #ff6f61, #d62828);
+            padding: 18px 40px;
+            border-radius: 50px;
+            display: inline-block;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            animation: pulse 2s infinite;
+            letter-spacing: 1px;
+        }
+
+        /* ---------- Confetti Animation ---------- */
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: red;
+            top: -10px;
+            animation: confettiFall 5s linear infinite;
+            opacity: 0.8;
+            z-index: 1;
+        }
+
+        .confetti:nth-child(odd) {
+            background-color: gold;
+        }
+
+        .confetti:nth-child(3n) {
+            background-color: pink;
+        }
+
+        .confetti:nth-child(5n) {
+            background-color: lightblue;
+        }
+
+        /* ---------- Animations ---------- */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 15px rgba(230, 57, 70, 0.4);
+            }
+
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 0 35px rgba(230, 57, 70, 0.6);
+            }
+
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 15px rgba(230, 57, 70, 0.4);
+            }
+        }
+
+        @keyframes confettiFall {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes floatHearts {
+            0% {
+                transform: translateY(0) rotate(45deg);
+                opacity: 0.7;
+            }
+
+            50% {
+                transform: translateY(-50vh) rotate(45deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100vh) rotate(45deg);
+                opacity: 0;
+            }
+        }
+
+        /* ---------- Responsive Tweaks ---------- */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+
+            header p {
+                font-size: 1.1rem;
+            }
+
+            .photo-card img {
+                height: 200px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 20px 10px;
+            }
+
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            .photo-card p {
+                font-size: 0.95rem;
+            }
+
+            footer {
+                font-size: 1rem;
+                padding: 12px 25px;
+            }
+        }
+
+        /* ---------- Extra Decorative Elements ---------- */
+        /* Glowing Border Animation */
+        .photo-card.glow-border {
+            border: 3px solid transparent;
+            background-image: linear-gradient(white, white),
+                linear-gradient(90deg, #ff758f, #ff6f61, #d62828);
+            background-origin: border-box;
+            background-clip: content-box, border-box;
+            animation: borderGlow 3s linear infinite;
+        }
+
+        @keyframes borderGlow {
+            0% {
+                border-image-source: linear-gradient(90deg, #ff758f, #ff6f61, #d62828);
+            }
+
+            50% {
+                border-image-source: linear-gradient(90deg, #d62828, #ff758f, #ff6f61);
+            }
+
+            100% {
+                border-image-source: linear-gradient(90deg, #ff758f, #ff6f61, #d62828);
+            }
+        }
+
+        /* Floating Animation for Cards */
+        .photo-card.float {
+            animation: floatCard 6s ease-in-out infinite;
+        }
+
+        @keyframes floatCard {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        /* Text Glow Effect */
+        .glow-text {
+            color: #e63946;
+            text-shadow: 0 0 5px #ff758f, 0 0 10px #ff6f61, 0 0 20px #d62828;
+        }
+
+        /* Ribbon Decoration */
+        .ribbon {
+            width: 150px;
+            background: #ff4d6d;
+            color: #fff;
+            text-align: center;
+            padding: 8px 0;
+            position: absolute;
+            top: 20px;
+            left: -35px;
+            transform: rotate(-45deg);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ---------- End of File ---------- */
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>📸 Dashain Memories 😊❤️</h1>
+        <p>Special family moments from past Dashain celebrations 🎉🙏</p>
+    </header>
+
+    <main class="gallery">
+        <!-- Replace src with your photo paths -->
+        <div class="photo-card">
+            <img src="1.jpg" alt="Dashain Family Photo 1">
+            <p>😊 Family gathering ❤️</p>
+        </div>
+
+        <div class="photo-card">
+            <img src="2.jpg" alt="Dashain Family Photo 2">
+            <p>🎉 Dashain and Bhaitika Tika Ceremony with brother ❤️</p>
+        </div>
+
+        <div class="photo-card">
+            <img src="3.jpg" alt="Dashain Family Photo 3">
+            <p> your cute image😊</p>
+        </div>
+
+        <div class="photo-card">
+            <img src="4.jpg" alt="Dashain Family Photo 4">
+            <p>🥰 With your Mom ❤️</p>
+        </div>
+        <div class="photo-card">
+            <img src="5.jpg" alt="Dashain Family Photo 4">
+            <p>🥰 With your Dad ❤️</p>
+        </div>
+        <div class="photo-card">
+            <img src="6.jpg" alt="Dashain Family Photo 4">
+            <p>🥰 your sister ❤️</p>
+        </div>
+        <div class="photo-card">
+            <img src="7.jpg" alt="Dashain Family Photo 4">
+            <p>🥰 very cute one ❤️</p>
+        </div>
+        <div class="photo-card">
+            <img src="8.jpg" alt="Dashain Family Photo 4">
+            <p>🥰 perfect sari ❤️</p>
+        </div>
+        <div class="photo-card">
+            <img src="9.jpg" alt="Dashain Family Photo 4">
+            <p>🥰 sari also but this dress is someons personal favourite ❤️</p>
+        </div>
+        <div class="photo-card">
+            <img src="10.jpg" alt="Dashain Family Photo 4">
+            <p>🥰 Very regilious girl ❤️</p>
+        </div>
+        <div class="photo-card">
+            <img src="11.jpg" alt="Dashain Family Photo 4">
+            <p>🥰 aesthetic ❤️</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>Made with smile😊❤️ for Chhaya (you)</p>
+    </footer>
+</body>
+
+</html>
